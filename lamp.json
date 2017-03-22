@@ -1,0 +1,10 @@
+{
+  "id" : 123456,
+  "address": "Piazza Massimo D'Azeglio 10",
+  "model": "bella lampada",
+  "consumption": 4,
+  "power_on": true,
+  "level": 4.2,
+  "last_replacement": 1489059057,
+  "sent": 1489059058
+}
