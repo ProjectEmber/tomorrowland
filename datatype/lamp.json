@@ -1,6 +1,6 @@
 {
   "id" : 123456,
-  "address": "Piazza Massimo D'Azeglio 10",
+  "address": "Piazza Massimo D'Azeglio 48",
   "model": "bella lampada",
   "consumption": 4,
   "power_on": true,
