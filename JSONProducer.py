@@ -8,7 +8,7 @@ class JSONProducer(Thread):
         """
         Class constructor
         :param type: String: Kafka topics where to write into ("lamp", "traffic" or "lumen")
-        :param producer: KafkaProcuder instance
+        :param producer: KafkaProducer instance
         :param period: Integer: time period in seconds
         :param data: Object instance of Lamp, Traffic or Lumen
         :param test: 0 or 1 - send to Kafka or print

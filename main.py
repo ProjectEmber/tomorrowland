@@ -16,7 +16,7 @@ def citysimulator():
         - gets lists of lamps, lumens and traffics objects
         - starts a Thread for each oject
     """
-    p = Producer({'bootstrap.servers': 'localhost:9092'}) if not test else ""
+    p = Producer({'bootstrap.servers': 'kafka.project-ember.city:9092'}) if not test else ""
 
     lamps, lumens, traffics = generator.get_lists(10);
 
@@ -35,5 +35,5 @@ def citysimulator():
 
 if __name__ == "__main__":
     # Set test to 1 if you want to print jsons instead of sending them to Kafka
-    test = 1
+    test = 0
     citysimulator()

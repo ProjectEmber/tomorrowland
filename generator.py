@@ -1,9 +1,5 @@
 import random
 
-from utils.lamp import Lamp
-from utils.lumen import Lumen
-from utils.traffic import Traffic
-
 STREETS = [
     'Piazza Massimo D\'Azeglio',
     'Corso Vittorio Emanuele',
@@ -17,6 +13,10 @@ MODELS = [
     ['LED', 5],
     ['OLD', 10]
 ]
+
+from utils.lamp import Lamp
+from utils.lumen import Lumen
+from utils.traffic import Traffic
 
 
 def get_lists(num):
