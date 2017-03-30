@@ -2,11 +2,11 @@ import random
 
 # tuples of street names and control unit numbers
 STREETS = [
-    ['Piazza Massimo D\'Azeglio', 1],
-    ['Corso Vittorio Emanuele', 1],
-    ['Via Giuseppe Garibaldi', 2],
-    ['Via Fratelli Zuccari', 2],
-    ['Viale Ungheria', 3]
+    ['Piazza Massimo D\'Azeglio', "cu1"],
+    ['Corso Vittorio Emanuele', "cu1"],
+    ['Via Giuseppe Garibaldi', "cu2"],
+    ['Via Fratelli Zuccari', "cu2"],
+    ['Viale Ungheria', "cu3"]
 ]
 
 # tuples of model names and power consumption values
