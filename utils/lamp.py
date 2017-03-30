@@ -7,7 +7,7 @@ from generator import MODELS
 
 
 class Lamp:
-    def __init__(self, lamp_id, address):
+    def __init__(self, lamp_id, address, control_unit):
         """
         Lamp constructor
         :param lamp_id: Integer
@@ -18,6 +18,7 @@ class Lamp:
         self.address = address
         model = random.choice(MODELS)
         self.model = model[0]
+        self.control_unit = control_unit
         self.consumption = model[1]
         self.power_on = True
         self.level = 1.0
