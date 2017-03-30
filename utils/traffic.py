@@ -1,5 +1,7 @@
 from datetime import datetime
 
+import numpy
+
 from generator import STREETS
 
 
@@ -12,6 +14,7 @@ class Traffic:
         self.address = STREETS[i]
         self.retrieved = int(datetime.now().timestamp())
         self.intensity = 5.0
+        self.time = 0.0
 
     def update_retrieved(self):
         """
@@ -23,4 +26,10 @@ class Traffic:
         """
         Update the traffic intensity value recorded
         """
-        self.intensity = 5.0  # TODO to make a math function (maybe a cos?)
+        self.time = numpy.round(self.time + 0.2, 1)
+        self.intensity = numpy.round(5.0*(self.time - numpy.floor(self.time)), 1)
+
+    def __getstate__(self):
+        state = dict(self.__dict__)
+        del state['time']
+        return state

@@ -35,16 +35,16 @@ class JSONProducer(Thread):
 
             if self._type == "lumen":
                 # Produce the element to Kafka or print it
-                self._producer.produce(self._type, json.dumps(self._data.__dict__)) \
-                    if not self._test else print(json.dumps(self._data.__dict__))
+                self._producer.produce(self._type, json.dumps(self._data.__getstate__())) \
+                    if not self._test else print(json.dumps(self._data.__getstate__()))
                 # Change the ambient value for the next update
                 self._data.change_ambient()
 
             if self._type == "traffic":
                 self._data.update_retrieved()
                 # Produce the element to Kafka or print it
-                self._producer.produce(self._type, json.dumps(self._data.__dict__)) \
-                    if not self._test else print(json.dumps(self._data.__dict__))
+                self._producer.produce(self._type, json.dumps(self._data.__getstate__())) \
+                    if not self._test else print(json.dumps(self._data.__getstate__()))
                 # Update the traffic intensity value for the next update
                 self._data.update_intensity()
 

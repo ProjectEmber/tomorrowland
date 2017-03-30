@@ -18,7 +18,7 @@ def citysimulator():
     """
     p = Producer({'bootstrap.servers': 'kafka.project-ember.city:9092'}) if not test else ""
 
-    lamps, lumens, traffics = generator.get_lists(10);
+    lamps, lumens, traffics = generator.get_lists(100);
 
     # for each element we pass:
     # - the topic where to write into
