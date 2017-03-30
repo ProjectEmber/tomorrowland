@@ -11,9 +11,9 @@ STREETS = [
 
 # tuples of model names and power consumption values
 MODELS = [
-    ['NORMAL', 7],
-    ['LED', 5],
-    ['OLD', 10]
+    ['NORMAL', 40],
+    ['LED', 60],
+    ['OLD', 100]
 ]
 
 from utils.lamp import Lamp
