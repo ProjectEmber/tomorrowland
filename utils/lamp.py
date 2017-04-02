@@ -1,8 +1,6 @@
 import random
 from datetime import datetime
 
-import numpy
-
 from generator import MODELS
 
 

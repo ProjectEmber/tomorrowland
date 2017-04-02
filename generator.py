@@ -4,9 +4,9 @@ import random
 STREETS = [
     ['Piazza Massimo D\'Azeglio', "cu1"],
     ['Corso Vittorio Emanuele', "cu1"],
-    ['Via Giuseppe Garibaldi', "cu2"],
-    ['Via Fratelli Zuccari', "cu2"],
-    ['Viale Ungheria', "cu3"]
+    ['Via Giuseppe Garibaldi', "cu1"],
+    ['Via Fratelli Zuccari', "cu1"],
+    ['Viale Ungheria', "cu1"]
 ]
 
 # tuples of model names and power consumption values
