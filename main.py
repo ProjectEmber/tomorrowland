@@ -18,6 +18,7 @@ def citysimulator():
         - starts a Thread for each oject
     """
     p = KafkaProducer(bootstrap_servers="kafka.project-ember.city:9092") if not test else ""
+    r = requests
 
     lamps, lumens, traffics = generator.get_lists(100);
 
@@ -27,8 +28,10 @@ def citysimulator():
     # - the lamp, lumen or traffic object reference
     # - if it is a test or not
     for lamp in lamps:
-        requests.post("localhost:3000",lamp)  # register all the lamps to the control unit
-        JSONProducer('lamp', p, 10, lamp, test).start()
+        l = dict()
+        l['lamp'] = json.dumps(lamp.__dict__).encode('utf-8')
+        requests.post("http://localhost:5000/newlamp",l)  # register all the lamps to the control unit
+        JSONProducer('lamp', r, 10, lamp, test).start()
     for lumen in lumens:
         JSONProducer('lumen', p, 10, lumen, test).start()
     for traffic in traffics:
