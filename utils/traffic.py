@@ -13,7 +13,7 @@ class Traffic:
         """
         self.address = STREETS[i][0]
         self.retrieved = int(datetime.now().timestamp())
-        self.intensity = 5.0
+        self.intensity = 0.0
         self.time = 0.0
 
     def update_retrieved(self):
@@ -26,8 +26,8 @@ class Traffic:
         """
         Update the traffic intensity value recorded
         """
-        self.time = numpy.round(self.time + 0.2, 1)
-        self.intensity = numpy.round(5.0*(self.time - numpy.floor(self.time)), 1)
+        self.time = numpy.round(self.time + 0.05, 2)
+        self.intensity = numpy.round((self.time - numpy.floor(self.time)), 2)
 
     def __getstate__(self):
         state = dict(self.__dict__)

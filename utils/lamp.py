@@ -18,16 +18,16 @@ class Lamp:
         self.model = model[0]
         self.control_unit = control_unit
         self.consumption = model[1]
-        self.power_on = True
+        self.power_on = False
         self.level = 1.0
         self.sent = int(datetime.now().timestamp())
-        self.last_replacement = int(datetime.now().timestamp() - datetime(2017, 2, 25).timestamp())
+        self.last_replacement = int(datetime(2017, 2, 25).timestamp())
 
     def change_power(self):
         """
         Change the power status of the lamp according to a time variable function
         """
-        self.power_on = True  # TODO to make a variable
+        self.power_on = False  # TODO to make a variable
 
     def update_sent(self):
         """
