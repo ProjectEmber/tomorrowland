@@ -1,5 +1,6 @@
 from threading import Thread
 from time import sleep
+from random import randint
 
 from kafka import KafkaProducer
 import json
@@ -31,9 +32,9 @@ def citysimulator():
         l = dict()
         l['lamp'] = json.dumps(lamp.__dict__).encode('utf-8')
         requests.post("http://localhost:5000/newlamp",l)  # register all the lamps to the control unit
-        JSONProducer('lamp', r, 10, lamp, test).start()
+        JSONProducer('lamp', r, 10 + randint(1,5), lamp, test).start()
     for lumen in lumens:
-        JSONProducer('lumen', p, 10, lumen, test).start()
+        JSONProducer('lumen', p, 10 + randint(1,5), lumen, test).start()
     for traffic in traffics:
         JSONProducer('traffic', p, 20, traffic, test).start()
 

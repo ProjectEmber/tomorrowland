@@ -36,6 +36,8 @@ class JSONProducer(Thread):
                 self._data.change_power()
 
             if self._type == "lumen":
+                # Update the timestamp for the "retrieved" attribute
+                self._data.update_retrieved()
                 # Produce the element to Kafka or print it
                 self._producer.send(self._type, json.dumps(self._data.__getstate__()).encode('utf-8')) \
                     if not self._test else print(json.dumps(self._data.__getstate__()))

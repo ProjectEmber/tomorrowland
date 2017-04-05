@@ -13,7 +13,7 @@ class Lumen:
         """
         self.id = lumen_id
         self.address = address
-        self.ambient = 0.0  # Fixed value at t0
+        self.ambient = 0.1  # Fixed value at t0
         self.retrieved = int(datetime.now().timestamp())
         self.time = 0.0
 
@@ -23,6 +23,12 @@ class Lumen:
         """
         self.time = numpy.round(self.time + 0.2, 1)
         self.ambient = numpy.round(34.0*numpy.power(numpy.sin(self.time), 2), 1)
+
+    def update_retrieved(self):
+        """
+        Update the time instant of when the data is retrieved
+        """
+        self.retrieved = int(datetime.now().timestamp())
 
     def __getstate__(self):
         state = dict(self.__dict__)
