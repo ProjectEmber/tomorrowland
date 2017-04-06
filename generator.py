@@ -1,13 +1,8 @@
 import random
+from namesake import getname
 
 # tuples of street names and control unit numbers
-STREETS = [
-    ['Piazza Massimo D\'Azeglio', "cu1"],
-    ['Corso Vittorio Emanuele', "cu1"],
-    ['Via Giuseppe Garibaldi', "cu1"],
-    ['Via Fratelli Zuccari', "cu1"],
-    ['Viale Ungheria', "cu1"]
-]
+STREETS = []
 
 # tuples of model names and power consumption values
 MODELS = [
@@ -33,22 +28,27 @@ def get_lists(num):
     lumens = []
     traffics = []
 
+    for i in range(0, 100):
+        STREETS.append(getname())
+
+
     # Traffic sensor generation
+    h = 0
     for i in range(0, len(STREETS)):
         # We need to create only one traffic sensor for each street
         traffics.append(Traffic(i))
-
-    # Lamp and Lumen generation
-    for i in range(0, num):
-        # Choose a random street
-        street = random.choice(STREETS)
-        address = street[0]
-        control_unit = street[1]
-        # Generate a Lamp and a Lumen with the same id and street (they are co-located)
-        new_lamp = Lamp(i, address, control_unit)
-        new_lumen = Lumen(i, address)
-        # Append them to the proper list
-        lamps.append(new_lamp)
-        lumens.append(new_lumen)
+        # Lamp and Lumen generation
+        for j in range(0, num):
+            # Choose a random street
+            street = STREETS[i]
+            address = street
+            control_unit = "cu1"
+            # Generate a Lamp and a Lumen with the same id and street (they are co-located)
+            new_lamp = Lamp(h, address, control_unit)
+            new_lumen = Lumen(h, address)
+            # Append them to the proper list
+            lamps.append(new_lamp)
+            lumens.append(new_lumen)
+            h = h + 1
 
     return lamps, lumens, traffics

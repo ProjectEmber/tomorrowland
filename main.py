@@ -21,7 +21,7 @@ def citysimulator():
     p = KafkaProducer(bootstrap_servers="kafka.project-ember.city:9092") if not test else ""
     r = requests
 
-    lamps, lumens, traffics = generator.get_lists(100);
+    lamps, lumens, traffics = generator.get_lists(15);
 
     # for each element we pass:
     # - the topic where to write into
