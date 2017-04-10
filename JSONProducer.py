@@ -34,6 +34,7 @@ class JSONProducer(Thread):
                     if not self._test else print(json.dumps(self._data.__dict__))
                 # Change the power status for the next update
                 self._data.change_power()
+                self._data.change_consumption()
 
             if self._type == "lumen":
                 # Update the timestamp for the "retrieved" attribute

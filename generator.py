@@ -29,7 +29,7 @@ def get_lists(num):
     traffics = []
 
     for i in range(0, 100):
-        STREETS.append(getname())
+        STREETS.append(getname().replace("-", ""))
 
 
     # Traffic sensor generation

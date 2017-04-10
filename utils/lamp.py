@@ -29,6 +29,13 @@ class Lamp:
         """
         self.power_on = False  # TODO to make a variable
 
+    def change_consumption(self):
+        self.consumption = self.consumption + random.randint(-5, +5)
+        if self.consumption < 40:
+            self.consumption = 40
+        if self.consumption > 100:
+            self.consumption = 100
+
     def update_sent(self):
         """
         Update the time instant of when the data is retrieved
