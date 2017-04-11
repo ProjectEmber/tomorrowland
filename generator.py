@@ -37,18 +37,17 @@ def get_lists(num):
     for i in range(0, len(STREETS)):
         # We need to create only one traffic sensor for each street
         traffics.append(Traffic(i))
+        address = STREETS[i]
         # Lamp and Lumen generation
         for j in range(0, num):
             # Choose a random street
-            street = STREETS[i]
-            address = street
             control_unit = "cu1"
             # Generate a Lamp and a Lumen with the same id and street (they are co-located)
             new_lamp = Lamp(h, address, control_unit)
             new_lumen = Lumen(h, address)
             # Append them to the proper list
-            lamps.append(new_lamp)
             lumens.append(new_lumen)
+            lamps.append(new_lamp)
             h = h + 1
 
     return lamps, lumens, traffics

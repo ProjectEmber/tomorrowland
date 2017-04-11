@@ -13,7 +13,7 @@ class Lumen:
         """
         self.id = lumen_id
         self.address = address
-        self.ambient = 0.1  # Fixed value at t0
+        self.ambient = 5.0  # Fixed value at t0
         self.retrieved = int(datetime.now().timestamp())
         self.time = 0.0
 
@@ -21,8 +21,9 @@ class Lumen:
         """
         Change the ambient value according to a time variable function
         """
-        self.time = numpy.round(self.time + 0.2, 1)
-        self.ambient = numpy.round(34.0*numpy.power(numpy.sin(self.time), 2), 1)
+        # self.time = numpy.round(self.time + 0.05, 2)
+        # self.ambient = numpy.round(34.0*numpy.abs(1.0/8.0*numpy.sin(self.time)), 2)
+        self.ambient = 5.0
 
     def update_retrieved(self):
         """

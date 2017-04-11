@@ -11,7 +11,7 @@ class Traffic:
         Traffic constructor
         :param i: Integer: used to take the street for the list in order 
         """
-        self.address = STREETS[i][0]
+        self.address = STREETS[i]
         self.retrieved = int(datetime.now().timestamp())
         self.intensity = 0.1
         self.time = 0.0
