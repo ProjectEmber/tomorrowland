@@ -30,7 +30,7 @@ class JSONProducer(Thread):
                 # Update the timestamp for the "sent" attribute
                 self._data.update_sent()
                 # Produce the element to Kafka or print it
-                self._producer.send(self._type, json.dumps(self._data.__dict__).encode('utf-8')) \
+                self._producer.post("http://localhost:5000/control", self._data.__dict__) \
                     if not self._test else print(json.dumps(self._data.__dict__))
                 # Change the power status for the next update
                 self._data.change_power()

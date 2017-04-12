@@ -21,7 +21,7 @@ def citysimulator():
     p = KafkaProducer(bootstrap_servers="kafka.project-ember.city:9092") if not test else ""
     r = requests
 
-    lamps, lumens, traffics = generator.get_lists(15);
+    lamps, lumens, traffics = generator.get_lists(20);
 
     # for each element we pass:
     # - the topic where to write into
@@ -31,12 +31,12 @@ def citysimulator():
     for lamp in lamps:
         l = dict()
         l['lamp'] = json.dumps(lamp.__dict__).encode('utf-8')
-        # requests.post("http://localhost:5000/newlamp",l)  # register all the lamps to the control unit
-        JSONProducer('lamp', p, 10 + randint(1,5), lamp, test).start()
+        requests.post("http://localhost:5000/newlamp",l)  # register all the lamps to the control unit
+        JSONProducer('lamp', r, 10, lamp, test).start()
     for lumen in lumens:
-        JSONProducer('lumen', p, 10 + randint(1,5), lumen, test).start()
+        JSONProducer('lumen', p, 10, lumen, test).start()
     for traffic in traffics:
-        JSONProducer('traffic', p, 20, traffic, test).start()
+        JSONProducer('traffic', p, 10, traffic, test).start()
 
 
 if __name__ == "__main__":
