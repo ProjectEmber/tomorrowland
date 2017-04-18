@@ -18,7 +18,7 @@ def citysimulator():
         - gets lists of lamps, lumens and traffics objects
         - starts a Thread for each oject
     """
-    p = KafkaProducer(bootstrap_servers="kafka.project-ember.city:9092") if not test else ""
+    p = KafkaProducer(bootstrap_servers="ec2-35-177-253-155.eu-west-2.compute.amazonaws.com:9092") if not test else ""
     r = requests
 
     lamps, lumens, traffics = generator.get_lists(20);
