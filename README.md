@@ -5,7 +5,7 @@ Project Ember official city simulator
 The following libraries needs to be installed:
 
 - KafkaPython: https://github.com/dpkp/kafka-python
-- Requests: https://docs.python-requests.org/
+- Requests: http://docs.python-requests.org/en/master/
 
 
 ##### Usage
@@ -16,7 +16,7 @@ this mandatory parameters:
 - `--control_unit`: ip address of the control unit
 - `--kafka`: ip address of the kafka cluster
 
-Another parameter can be:
+Another parameter is:
 
 - `test`: 0 or 1 - send data to kafka or print them
 
