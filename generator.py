@@ -31,7 +31,6 @@ def get_lists(num):
     for i in range(0, 100):
         STREETS.append(getname().replace("-", ""))
 
-
     # Traffic sensor generation
     h = 0
     for i in range(0, len(STREETS)):
