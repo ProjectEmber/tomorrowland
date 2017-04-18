@@ -23,14 +23,14 @@ class JSONProducer(Thread):
         self._test = test
 
     def run(self):
-        # continuosly
+        # continuously
         while True:
             # Depending on the type
             if self._type == "lamp":
                 # Update the timestamp for the "sent" attribute
                 self._data.update_sent()
                 # Produce the element to Kafka or print it
-                self._producer.post("http://localhost:5000/control", self._data.__dict__) \
+                requests.post("http://" + self._producer + "/control", self._data.__dict__) \
                     if not self._test else print(json.dumps(self._data.__dict__))
                 # Change the power status for the next update
                 self._data.change_power()
